@@ -3,15 +3,15 @@ import type { Pokemon } from "@pokedex/types";
 import { sortPokemon } from "../src/data/sort.js";
 
 const samples: Pokemon[] = [
-  { id: 3, name: "Venusaur", types: ["Grass", "Poison"], sprite: "venusaur.png" },
-  { id: 1, name: "Charmander", types: ["Fire"], sprite: "charmander.png" },
-  { id: 2, name: "Bulbasaur", types: ["Grass", "Poison"], sprite: "bulbasaur.png" },
+  { id: 3, name: "Venusaur", types: ["Grass", "Poison"], sprite: "venusaur.png", ownerId: "system" },
+  { id: 1, name: "Charmander", types: ["Fire"], sprite: "charmander.png", ownerId: "system" },
+  { id: 2, name: "Bulbasaur", types: ["Grass", "Poison"], sprite: "bulbasaur.png", ownerId: "system" },
 ];
 
 const expected: Pokemon[] = [
-  { id: 1, name: "Charmander", types: ["Fire"], sprite: "charmander.png" },
-  { id: 2, name: "Bulbasaur", types: ["Grass", "Poison"], sprite: "bulbasaur.png" },
-  { id: 3, name: "Venusaur", types: ["Grass", "Poison"], sprite: "venusaur.png" },
+  { id: 1, name: "Charmander", types: ["Fire"], sprite: "charmander.png", ownerId: "system" },
+  { id: 2, name: "Bulbasaur", types: ["Grass", "Poison"], sprite: "bulbasaur.png", ownerId: "system" },
+  { id: 3, name: "Venusaur", types: ["Grass", "Poison"], sprite: "venusaur.png", ownerId: "system" },
 ];
 
 describe("sortPokemon", () => {
