@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { loadPokemonPage } from "./lib/pokemon";
+import { FavoriteButton } from "./components/FavoriteButton";
 
 type PageProps = {
   searchParams?: { page?: string; pageSize?: string };
@@ -24,7 +25,8 @@ export default function Page({ searchParams }: PageProps) {
       <ul>
         {items.map((p) => (
           <li key={p.id}>
-            #{p.id} {p.name} — {p.types.join(", ")}
+            #{p.id} {p.name} — {p.types.join(", ")}{" "}
+            <FavoriteButton pokemonId={p.id} />
           </li>
         ))}
       </ul>
