@@ -15,7 +15,8 @@ export interface PokemonPage {
 
 function readAll(): Pokemon[] {
   const dataPath = resolve(process.cwd(), "../../data/pokemon.json");
-  return JSON.parse(readFileSync(dataPath, "utf8"));
+  const raw = JSON.parse(readFileSync(dataPath, "utf8")) as Omit<Pokemon, "ownerId">[];
+  return raw.map((p) => ({ ...p, ownerId: "system" }));
 }
 
 export function loadPokemon(): Pokemon[] {
