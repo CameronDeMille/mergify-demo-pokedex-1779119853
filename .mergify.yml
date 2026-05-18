@@ -1,0 +1,18 @@
+queue_rules:
+  - name: default
+    # Retry once on flaky CI — Mergify recreates the draft PR for a fresh run.
+    # This is what makes the planted flaky test on PR1 self-heal on stage.
+    max_checks_retries: 1
+    queue_conditions:
+      - check-success=typecheck
+      - check-success=lint
+      - check-success=test_api
+      - check-success=test_web
+      - check-success=build
+    merge_conditions:
+      - check-success=typecheck
+      - check-success=lint
+      - check-success=test_api
+      - check-success=test_web
+      - check-success=build
+    merge_method: squash
